@@ -1,18 +1,14 @@
-- name: Install Apache Web Server
+- name: Install Docker and start Mariadb
   hosts: local
   tasks:
-  - name: install apache2 package
+  - name: install docker package
     apt:
-      name: apache2
+      name: docker-ce
       state: present
-  - name: Start apache2 service
+  - name: Start docker service
     service:
-      name: apache2
+      name: docker
       state: started
-  - name: install mariadb package
-    apt:
-      name: mariadb-server
-      state: present
   - name: Start mariadb service
     service:
       name: mariadb
