@@ -1,0 +1,19 @@
+- name: Install Apache Web Server
+  hosts: local
+  tasks:
+  - name: install apache2 package
+    apt:
+      name: apache2
+      state: present
+  - name: Start apache2 service
+    service:
+      name: apache2
+      state: started
+  - name: install mariadb package
+    apt:
+      name: mariadb-server
+      state: present
+  - name: Start mariadb service
+    service:
+      name: mariadb
+      state: started
